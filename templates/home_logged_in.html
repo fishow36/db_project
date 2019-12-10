@@ -10,5 +10,36 @@
 <p>
 Здесь пока ничего нет   
 </p>
+
+<table border="1" width="25%" cellpadding="5">
+   <tr>
+    <th>Мои задачи</th>
+    <th>Важность</th>
+	<th>Статус выполнения</th>
+   </tr>
+   <tr>
+    <td>
+	<ol> 
+{% for t in tasks %} 
+<br>{{t}}</br> 
+{% endfor %} 
+	</ol>
+	</td>
+    <td>
+	<ol> 
+{% for imp in importance %} 
+<br>{{imp}}</br> 
+{% endfor %} 
+	</ol>
+	</td>
+	<td>
+	<ol> 
+{% for s in statuses %} 
+<br>{{s}}</br> 
+{% endfor %} 
+	</ol>
+	</td>
+  </tr>
+ </table>
 </body>
 </html>
