@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Планировщик задач</title>
+</head>
+<body>
+<h1>Новое задание</h1>
+<form method="POST" action="">
+	<p>Задание:</p>
+	<select name="tasks">
+	 	{% for i in tasks %}
+	 		<option value="{{i}}">{{i}} 
+	 	{% endfor %}
+	 </select>
+
+
+	<p>Важность:</p>
+	<select name="importance">
+	 	{% for k in importance %}
+	 		<option value="{{k}}">{{k}} 
+	 	{% endfor %}
+	 </select>
+
+
+	<p>Статус:</p>
+	<select name="status">
+	 	{% for j in status %}
+	 		<option value="{{j}}">{{j}} 
+	 	{% endfor %}
+	 </select>
+	<p><input type="submit" value="Отправить"></p>
+</form>
+</body>
+</html>
