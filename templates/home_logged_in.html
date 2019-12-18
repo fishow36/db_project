@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Планировщик задач</title>
-</head>
-<body>
-<h1>Вы вошли в систему!</h1>
-<p>Тут вот ваши дела</p>
-<a href="new_task">Добавить новое задание</a>
-
-<table border="1" width="25%" cellpadding="5">
+{% extends 'base.html' %}
+{% block content %}
+<table border="1" width="50%" cellpadding="5">
    <tr>
     <th>Мои задачи</th>
     <th>Важность</th>
@@ -39,5 +30,4 @@
 	</td>
   </tr>
  </table>
-</body>
-</html>
+{% endblock %}
