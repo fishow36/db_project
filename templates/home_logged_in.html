@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Планировщик задач</title>
-</head>
-<body>
-<h1>Вы вошли в систему!</h1>
-<p>Тут вот ваши дела</p>
-<p>
-Здесь пока ничего нет   
-</p>
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="">
+	<p>Важность:</p>
+	<input type="checkbox" name="importance1" value="не очень важно"> Не очень важно<br>
+	<input type="checkbox" name="importance2" value="важно"> Важно<br>
+	<input type="checkbox" name="importance3" value="очень важно"> Очень важно<br>
+	<br><br>
+	<p>Статус:</p>
+	<input type="checkbox" name="status1" value="не начато">Не начато<br>
+	<input type="checkbox" name="status2" value="в процессе"> В процессе<br>
+	<input type="checkbox" name="status3" value="закончено">Закончено<br>
 
-<table border="1" width="25%" cellpadding="5">
+	<p><input type="submit" value="Показать"></p>
+</form>
+<table border="1" width="50%" cellpadding="5">
    <tr>
     <th>Мои задачи</th>
     <th>Важность</th>
@@ -41,5 +43,4 @@
 	</td>
   </tr>
  </table>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Новое задание</h1>
+<form method="POST" action="">
+	<p>Задача: <input type = "text" name= "tasks" /></p>
+
+
+	<p>Важность:
+	<select name="importance">
+	 	{% for k in importance %}
+	 		<option value="{{k}}">{{k}} 
+	 	{% endfor %}
+	 </select></p>
+
+	<p>Статус:
+	<select name="status">
+	 	{% for j in status %}
+	 		<option value="{{j}}">{{j}} 
+	 	{% endfor %}
+	 </select></p>
+	<p><input type="submit" value="Отправить"></p>
+</form>
+{% endblock %}
