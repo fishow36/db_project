@@ -2,28 +2,22 @@
 {% block content %}
 <h1>Новое задание</h1>
 <form method="POST" action="">
-	<p>Задание:</p>
-	<select name="tasks">
-	 	{% for i in tasks %}
-	 		<option value="{{i}}">{{i}} 
-	 	{% endfor %}
-	 </select>
+	<p>Задача: <input type = "text" name= "tasks" /></p>
 
 
-	<p>Важность:</p>
+	<p>Важность:
 	<select name="importance">
 	 	{% for k in importance %}
 	 		<option value="{{k}}">{{k}} 
 	 	{% endfor %}
-	 </select>
+	 </select></p>
 
-
-	<p>Статус:</p>
+	<p>Статус:
 	<select name="status">
 	 	{% for j in status %}
 	 		<option value="{{j}}">{{j}} 
 	 	{% endfor %}
-	 </select>
+	 </select></p>
 	<p><input type="submit" value="Отправить"></p>
 </form>
 {% endblock %}
