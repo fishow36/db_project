@@ -1,64 +1,56 @@
 {% extends 'base.html' %}
 {% block content %}
+<br>
 <form method="POST" action="">
-	<p>Важность:</p>
-	<input type="checkbox" name="importance1" value="не очень важно"> Не очень важно<br>
-	<input type="checkbox" name="importance2" value="важно"> Важно<br>
-	<input type="checkbox" name="importance3" value="очень важно"> Очень важно<br>
-	<br><br>
-	<p>Статус:</p>
-	<input type="checkbox" name="status1" value="не начато">Не начато<br>
-	<input type="checkbox" name="status2" value="в процессе"> В процессе<br>
-	<input type="checkbox" name="status3" value="закончено">Закончено<br>
+	<table width = "30%">
+		<tr>
+			<th> Важность </th>
+			<th> Статус </th>
+		</tr>
 
+		<tr>
+			<td><input type="checkbox" name="importance1" value="не очень важно"> Не очень важно</td>
+			<td><input type="checkbox" name="status1" value="не начато">Не начато</td>
+		</tr>
+
+		<tr>
+			<td><input type="checkbox" name="importance2" value="важно"> Важно</td>
+			<td><input type="checkbox" name="status2" value="в процессе"> В процессе</td>
+		</tr>
+
+		<tr>
+			<td><input type="checkbox" name="importance3" value="очень важно"> Очень важно</td>
+			<td><input type="checkbox" name="status3" value="закончено">Закончено</td>
+		</tr>	
+	</table>
+	<br>
 	<p><input type="submit" value="Показать"></p>
+<br>
 </form>
-<table border="1" width="80%" cellpadding="5">
+<table class = "table1" width="70%" cellpadding="5">
    <tr>
     <th>Мои задачи</th>
     <th>Важность</th>
 	<th>Статус выполнения</th>
 	<th> </th>
    </tr>
+{%for t in data%}
    <tr>
-    <td>
-	<ol> 
-{% for t in tasks %} 
-<br>{{t}}</br> 
-{% endfor %} 
-	</ol>
-	</td>
-    <td>
-	<ol> 
-{% for imp in importance %} 
-<br>{{imp}}</br> 
-{% endfor %} 
-	</ol>
-	</td>
-
-	<td>
-	<ol> 
-{% for s in statuses %} 
-<br>{{s}}</br> 
-{% endfor %} 
-	</ol>
-	</td>
-
-	<td>
-	<ol> 
-{% for id in ids %} 
-<form method = "GET" action = "/delete">
-	<input type="hidden" name="id" value="{{id}}">
-<br> <input type="submit" value="Удалить"></br> 
-</form>
-<form method = "GET" action = "/update">
-	<input type="hidden" name="id" value="{{id}}">
-<br> <input type="submit" value="Редактировать"></br> 
-</form>
-{% endfor %} 
-	</ol>
-	</td>
-
-  </tr>
+<td>{{t[0]}}</td> 
+<td>{{t[1]}}</td> 
+<td>{{t[2]}}</td> 
+<td>
+	<form method = "GET" action = "/delete">
+		<input type="hidden" name="id" value="{{t[3]}}">
+	<!--<br> <input type="submit" value="Удалить"></br> -->
+	<input type="image" src="https://sun9-48.userapi.com/c858128/v858128607/13200b/Qxn6eTMbd3w.jpg" alt="Delete" width="20" height="20">
+	</form>
+	<form method = "GET" action = "/update">
+		<input type="hidden" name="id" value="{{t[3]}}">
+		<input type="image" src="https://sun9-66.userapi.com/c858128/v858128607/13201c/rOjVAc7KHG8.jpg" alt="Update" width="20" height="20">
+	</form>
+</td> 
+	</tr>
+{% endfor %}
  </table>
 {% endblock %}
