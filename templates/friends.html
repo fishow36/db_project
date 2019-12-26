@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h5>Добавить друга</h5>
+<form method="GET" action="/send_request">
+<p><input type = "text" name = "username" /></p>
+<p><input type="submit" value="Отправить запрос"></p>
+</form>
+
+<h5>Друзья:</h5>
+{% for u in usernames%}
+    <p>{{u}}</p>
+{% endfor %}
+
+<h5>Заявки в друзья:</h5>
+{% for r in requests%}
+    <p>{{r[1]}}</p>
+    <form method = "GET" action = "/reply_to_request">
+        <input type="hidden" name="id_from" value="{{r[0]}}">
+        <input type="radio" name="friend_req" value="Принять">Принять
+        <input type="radio" name="friend_req" value="Отклонить">Отклонить<br>
+        <input type="submit" value="Отправить">
+	</form>
+{% endfor %}
+{% endblock %}
