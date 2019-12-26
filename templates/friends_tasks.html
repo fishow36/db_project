@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<form method="POST" action="">
+	<p>Выбор друга:
+	<select name="friend">
+		<option value="all">все
+	 	{% for name in friends %}
+	 		<option value="{{name}}">{{name}} 
+	 	{% endfor %}
+	 </select></p>
+	 
+	<table width = "30%">
+		<tr>
+			<th> Важность </th>
+			<th> Статус </th>
+		</tr>
+
+		<tr>
+			<td><input type="checkbox" name="importance1" value="не очень важно"> Не очень важно</td>
+			<td><input type="checkbox" name="status1" value="не начато">Не начато</td>
+		</tr>
+
+		<tr>
+			<td><input type="checkbox" name="importance2" value="важно"> Важно</td>
+			<td><input type="checkbox" name="status2" value="в процессе"> В процессе</td>
+		</tr>
+
+		<tr>
+			<td><input type="checkbox" name="importance3" value="очень важно"> Очень важно</td>
+			<td><input type="checkbox" name="status3" value="закончено">Закончено</td>
+		</tr>	
+	</table>
+	<br>
+	<p><input type="submit" value="Показать"></p>
+<br>
+</form>
+<table class = "table1" width="70%" cellpadding="5">
+   <tr>
+    <th>Друг</th>
+    <th>Задачи</th>
+    <th>Важность</th>
+	<th>Статус выполнения</th>
+   </tr>
+{%for t in data%}
+   <tr>
+<td>{{t[3]}}</td> 
+<td>{{t[0]}}</td> 
+<td>{{t[1]}}</td> 
+<td>{{t[2]}}</td> 
+	</tr>
+{% endfor %}
+ </table>
+{% endblock %}
